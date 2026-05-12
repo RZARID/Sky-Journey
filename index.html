@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sky Journey — Terbang Lebih Jauh</title>
+  <link rel="shortcut icon" href="logo-skyjourney.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ─── NOTIFICATION TOAST ─── -->
+<div class="notif-toast" id="notifToast">
+  <div class="notif-icon">✈️</div>
+  <div class="notif-text">
+    <div class="notif-title" id="notifTitle">Penerbangan Dipilih!</div>
+    <div class="notif-sub" id="notifSub">Tambahkan ke keranjang untuk melanjutkan.</div>
+  </div>
+</div>
+
+<!-- ─── NAVBAR ─── -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-glass sticky-top">
+  <div class="container-fluid px-lg-5">
+    <!-- Logo -->
+    <a class="navbar-brand nav-logo" href="#">
+      <img src="assets/logo-skyjourney.png" alt="logo" class="nav-logo-icon me-2" />
+      <span class="nav-logo-text">Sky<span>Journey</span></span>
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Items -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Beranda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#search-panel">Cari Tiket</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#destinasi">Destinasi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#keunggulan">Tentang Kami</a>
+        </li>
+        <li class="nav-item">
+          <a href="pesanan.html" class="btn btn-outline-custom" style="text-decoration: none; display: inline-block;">Cek Pesanan</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="beranda">
+    <div class="hero-plane">✈</div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Maskapai Digital Terbaik 2026</div>
+    <h1>Terbang Lebih Jauh,<br/>Jelajahi Keindahan <span class="highlight">Indonesia.</span></h1>
+    <p class="hero-sub">Dapatkan tiket pesawat dengan harga terbaik dan pelayanan kelas dunia hanya di Sky Journey.</p>
+    <div class="hero-actions">
+      <a href="#search-panel" class="btn-primary">✈ Cari Penerbangan</a>
+      <a href="#destinasi" class="btn-ghost">Lihat Destinasi →</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">200<span>+</span></div>
+      <div class="stat-label">Rute Penerbangan</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50<span>+</span></div>
+      <div class="stat-label">Kota Tujuan</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2<span>jt+</span></div>
+      <div class="stat-label">Penumpang Puas</div>
+    </div>
+</div>
+</section>
+
+  <!-- SEARCH PANEL -->
+   <div id="search-panel">
+
+       <div class="search-wrapper">
+           <div class="search-panel">
+               <div class="search-tabs">
+        <button class="search-tab active" onclick="setSearchTab(this)">Sekali Jalan</button>
+        <button class="search-tab" onclick="setSearchTab(this)">Pulang Pergi</button>
+        <button class="search-tab" onclick="setSearchTab(this)">Multi-Kota</button>
+      </div>
+
+      <div class="search-grid">
+        <div class="route-swap-wrapper">
+          <div class="search-field">
+            <label>Dari</label>
+            <!-- <input type="text" placeholder="Jakarta (CGK)" /> -->
+                           <label>Ke</label>
+              <select>
+                <option> Jakarta (CGK)</option>
+                <option> Bandung (BDO)</option>
+                <option> Surabaya (SUB)</option>
+                <option> Yogyakarta (JOG)</option>
+                <option> Bali (DPS)</option>
+              </select>
+          </div>
+          <button class="swap-btn" title="Tukar rute">⇄</button>
+          <div class="search-field">
+              <label>Ke</label>
+              <select>
+                <option> Jakarta (CGK)</option>
+                <option> Bandung (BDO)</option>
+                <option> Surabaya (SUB)</option>
+                <option> Yogyakarta (JOG)</option>
+                <option> Bali (DPS)</option>
+              </select>
+              <!-- <input type="text" placeholder="Bali (DPS)" /> -->
+            </div>
+        </div>
+        
+        <div class="search-field">
+            <label>Tanggal Pergi</label>
+            <input type="date" />
+        </div>
+        
+        <div class="search-field">
+            <label>Penumpang & Kelas</label>
+          <select>
+            <option>1 Dewasa — Ekonomi</option>
+            <option>2 Dewasa — Ekonomi</option>
+            <option>1 Dewasa — Bisnis</option>
+            <option>2 Dewasa — Bisnis</option>
+          </select>
+        </div>
+
+        <button class="btn-search" onclick="showNotif('Mencari penerbangan…', 'Silakan tunggu sebentar.')">
+          <a href="#destinasi">🔍 Cari Penerbangan</a>
+        </button>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- ─── DESTINASI ─── -->
+<section id="destinasi">
+  <div class="destinasi-header">
+    <div>
+      <div class="section-label">Jelajahi Dunia</div>
+      <h2 class="section-title">Destinasi Pilihan</h2>
+      <p class="section-desc">Temukan penerbangan terbaik ke ratusan kota di Indonesia dan mancanegara.</p>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterDest(this, 'populer')">🔥 Populer</button>
+      <button class="filter-tab" onclick="filterDest(this, 'domestik')">🇮🇩 Domestik</button>
+      <button class="filter-tab" onclick="filterDest(this, 'internasional')">🌏 Internasional</button>
+    </div>
+  </div>
+
+  <div class="dest-grid" id="destGrid"></div>
+</section>
+
+<!-- ─── PROMO ─── -->
+<section id="promo">
+  <div class="promo-banner">
+    <div class="promo-text">
+      <div class="section-label">✦ Penawaran Terbatas</div>
+      <div class="promo-title">Hemat hingga <span>40%</span> untuk<br/>Penerbangan Internasional</div>
+      <p class="promo-desc">Gunakan kode promo <strong style="color:var(--sky-cyan)">SMAISSUPER</strong> dan nikmati harga spesial ke destinasi Asia & Eropa. Berlaku hingga akhir bulan ini.</p>
+    </div>
+    <div class="promo-action">
+      <div class="promo-countdown">
+        <div class="count-box"><span class="count-num" id="cHour">12</span><span class="count-label">Jam</span></div>
+        <div class="count-box"><span class="count-num" id="cMin">45</span><span class="count-label">Menit</span></div>
+        <div class="count-box"><span class="count-num" id="cSec">00</span><span class="count-label">Detik</span></div>
+      </div>
+      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:12px" onclick="showNotif('Kode Promo Tersedia!', 'SMAISSUPER — Diskon 40% aktif.')">
+        Klaim Promo Sekarang
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── KEUNGGULAN ─── -->
+<section id="keunggulan">
+  <div class="keunggulan-header">
+    <div class="section-label">Tentang Sky Journey</div>
+    <h2 class="section-title">Tentang Kami</h2>
+    <p class="section-desc">Sky Journey didirikan pada tahun 2020 dengan visi menjadi platform pemesanan tiket pesawat terkemuka di Indonesia. Kami berkomitmen untuk memberikan pengalaman perjalanan yang mudah, cepat, dan terjangkau bagi semua pelanggan kami.</p>
+  </div>
+  <div class="keunggulan-grid">
+    <div class="feat-card">
+      <div class="feat-icon">✈️</div>
+      <div class="feat-title">Rute Domestik & Internasional</div>
+      <p class="feat-desc">Tersedia tiket ke berbagai kota di Indonesia dan destinasi dunia.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⚡</div>
+      <div class="feat-title">Proses Booking Cepat</div>
+      <p class="feat-desc">Proses pemesanan tiket selesai dalam hitungan detik. E-tiket langsung dikirim ke email Anda.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💰</div>
+      <div class="feat-title">Harga Kompetitif</div>
+      <p class="feat-desc">Garansi harga terbaik. Jika menemukan lebih murah, kami kembalikan selisihnya.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🕒</div>
+      <div class="feat-title">Reschedule Gratis</div>
+      <p class="feat-desc">Ubah jadwal penerbangan kapan saja tanpa biaya tambahan untuk anggota Premium.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📞</div>
+      <div class="feat-title">Layanan 24/7</div>
+      <p class="feat-desc">Tim dukungan kami siap membantu kapan pun Anda membutuhkan, setiap hari tanpa jeda.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔒</div>
+      <div class="feat-title">Keamanan Data</div>
+      <p class="feat-desc">Kami menjaga keamanan data pribadi Anda dengan sistem keamanan terkini.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="display:inline-flex">
+        <img src="assets/logo-skyjourney.png" alt="logo" class="nav-logo-icon" />
+        <span class="nav-logo-text">Sky<span>Journey</span></span>
+      </a>
+      <p class="footer-desc">Menjadi jembatan udara terpercaya di Indonesia dengan teknologi digital yang memudahkan perjalanan Anda.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/" class="social-btn" title="Instagram"><img src="assets/instagram-brands-solid-full.svg" alt="Instagram" class="social-icon"></a>
+        <a href="https://www.tiktok.com/" class="social-btn" title="Tiktok">
+          <img class="social-icon" src="assets/tiktok-brands-solid-full.svg" alt="Tiktok" />
+        </a>
+        <a href="https://www.facebook.com/" class="social-btn" title="Facebook"><img src="assets/facebook-f-brands-solid-full.svg" alt="Facebook" class="social-icon"></a>
+        <a href="https://www.youtube.com/" class="social-btn" title="YouTube"><img src="assets/youtube-brands-solid-full.svg" alt="YouTube" class="social-icon"></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <ul>
+        <li><a href="#">Tiket Pesawat</a></li>
+        <li><a href="#">Hotel & Resort</a></li>
+        <li><a href="#">Paket Wisata</a></li>
+        <li><a href="#">Asuransi Perjalanan</a></li>
+        <li><a href="#">Transfer Bandara</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Informasi</h4>
+      <ul>
+        <li><a href="#keunggulan">Tentang Kami</a></li>
+        <li><a href="#keunggulan">Karir</a></li>
+        <li><a href="#keunggulan">Kebijakan Privasi</a></li>
+        <li><a href="#keunggulan">Syarat & Ketentuan</a></li>
+        <li><a href="#keunggulan">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul>
+        <li><a href="tel:0800123SKY">📞 0800-123-SKY</a></li>
+        <li><a href="mailto:halo@skyjourney.id">✉️ halo@skyjourney.id</a></li>
+        <li><a href="https://maps.google.com/?q=Jakarta+Selatan" target="_blank">📍 Jakarta Selatan</a></li>
+        <li><a href="https://wa.me/62800123SKY" target="_blank" style="margin-top:12px;display:block">WhatsApp CS</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 <span>Sky Journey Indonesia</span>. Hak cipta dilindungi undang-undang.</p>
+    <p>Ditenagai oleh semangat menjelajah nusantara 🇮🇩</p>
+  </div>
+</footer>
+
+<!-- ─── JAVASCRIPT ─── -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
